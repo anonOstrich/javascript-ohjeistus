@@ -1,5 +1,6 @@
 # javascript-ohjeistus
-JavaSript-kurssin aikana kehittyvä ryhmätyö
+JavaSript-kurssin ryhmätyö
+Jesper Kuutti, Thierry Botty, Eemil Haapsaari
 
 ## Viikko 1 (deadline 14.11.)
 
