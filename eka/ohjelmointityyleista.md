@@ -47,7 +47,7 @@ for(let i = 0; i < t.length; i++){
 
 t = [1, 3, 7, 8];
 
-t = map((x) => x * x, t);
+t = t.map(x => x*x);
 ```
 
 Tässä imperatiivisessa esimerkissä lukija tietää suunnilleen mitä ohjelmoija haluaa tehdä, kun lukee funktion nimen *map*: halutaan palauttaa lista, jonka jokaista jäsentä on muokattu jollain annetulla funktiolla. Sen sijaan ylemmässä esimerkissä on luettava toteutuksen yksityiskohdat kokonaisuudessaan ennen kuin näkee halutun toiminnan. Tässä yksinkertaisessa tapauksessa tämä on helppoa, ja imperatiivisessakin tyylissä voi tietenkin jakaa toiminnallisuutta funktioiden avulla. Yleisemmin kuitenkin hyvinnimittyjen funktioiden ketjuttaminen helpottaa koko toiminnan ymmärtämistä, koska nimet kertovat mitä kyseiseltä ohjelmakoodin palalta odotetaan. Ylempi esimerkki on mahdoton funktionaalista paradigmaa seuratessa.
@@ -85,7 +85,7 @@ Jos aivan kaiken abstraktoi, voi koodin selkeys karsia - etenkin ilman riittäv�
 Jos funktiota käyttää vain kerran ohjelmassa, on selkeintä määritellä se käyttökohdan yhteydessä. Se ei tarvitse nimeä, ja sijoitus eri kohtaan koodia vie turhaan tilaa. Esimerkiksi yksittäinen merkkijonotaulukon eriskummallinen muutos:
 
 ```javascript
-map((merkkijono) => merkkijono + "ankka", t)
+taulukko.map(merkkijono => merkkijono + "ankka")
 ```
 
 
