@@ -50,7 +50,7 @@ Kuitenkin, jos luku muuttuja olio luodaan käyttäen konstruktoria, ei juuri kir
 
 ```
 
-### Yleisiesti jokin luku
+### Yleisesti jokin luku
 
 Aikaisemmassa vaiheessa tarkistimme onko luku kokonaisluku. Kuitenkin luomamme funktio palauttaa arvon "false", jos arvo on numeerinen muttei kokonaisluku. Esimerkiksisyötteet "NaN" ja "infinity" palauttavat arvon "false", vaikka ne ovat valideja numeerisia arvoja, koska ne voivat olla osana laskutoimitusta esim. tuloksena. Kuitenkin, koska voimme saada vastauksen "NaN" myös laittomasta toimituksesta, voimme todeta, että meidän tulisi suodattaa myös ne pois tarkistaessamme onko arvo numeerinen. Myös "infinity" voidaan rajata pois haluamistamme syötteistä lisäämällä "isFinite(input)". Tällöin voimme muodostaa funktion:
 
