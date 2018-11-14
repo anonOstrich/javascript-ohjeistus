@@ -3,6 +3,11 @@ JavaSript-kurssin aikana kehittyvä ryhmätyö
 
 ## Viikko 1 (deadline 14.11.)
 
+* [Tyyppiturvallisuus]()
+* [Millaiset algoritmit sopivat JavaScriptiin](eka/algoritmeista.md)
+* [Ohjelmointityyli - funtionaalinen vai imperatiivinen?](eka/ohjelmointityyleista.md)
+
+
 * Tyyppiturvallisuuden tavoittelua
   * Tunnetusti JavaScriptissä muuttujilla yms. ei ole tyyppiä, mutta arvoilla on. Kielessä on joukko arvon tyypin tutkimisen välineitä, mutta ehkei niitä ole tarpeeksi ja ehkeivät ne ole tarpeeksi tiukkoja. Esimerkiksi parseInt hyväksyy numeromerkkien jonon perään mitä vain roskaa, jne.
   * Laatikaa siis ehdotus yhtenäisestä joukosta kirjastofunktioita, joilla arvojen tyyppejä voi tarkastaa. Olisiko totuusarvo vai ehkä undefined paras paluuarvo ilmaisemaan tyypiltään virheellistä arvoa?
