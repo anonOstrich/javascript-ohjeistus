@@ -1,7 +1,7 @@
 # Javascript hyvät käytännöt
 Jesper Kuutti, Thierry Botty, Eemil Haapsaari
 
-Sisällysluettelo:
+# Sisällysluettelo:
 
 * [Tyyppiturvallisuus](eka/tyyppiturvallisuudesta.md)
 * [Millaiset algoritmit sopivat JavaScriptiin](eka/algoritmeista.md)
