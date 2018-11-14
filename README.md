@@ -1,8 +1,7 @@
-# javascript-ohjeistus
-JavaSript-kurssin ryhmätyö
+# Javascript hyvät käytännöt
 Jesper Kuutti, Thierry Botty, Eemil Haapsaari
 
-## Viikko 1
+Sisällysluettelo:
 
 * [Tyyppiturvallisuus](eka/tyyppiturvallisuudesta.md)
 * [Millaiset algoritmit sopivat JavaScriptiin](eka/algoritmeista.md)
