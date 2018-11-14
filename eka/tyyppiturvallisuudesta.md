@@ -1,7 +1,3 @@
-* Antakaa hyviä esimerkkejä tyyppiturvallisuutta tavoittelevasta ohjelmointityylistä funktioitanne käyttäen.
-
-* Voitte pohtia tyyppiturvallisuuden tavoittelua myös yleisemmällä tasolla. Antakaa myös hyviä neuvoja ja ohjeita JavaScript-ohjelmoijalle.
-
 
 ## Tyyppiturvallisuudesta
 
