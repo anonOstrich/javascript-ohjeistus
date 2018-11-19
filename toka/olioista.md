@@ -90,7 +90,7 @@ Getterit ja setterit
 --------------------
 **tässä voisi olla enemmän esimerkkikoodia**
 
-JavaScript tarjoaa monia mahdollisuuksia myös olion kenttien arvojen käyttämiseen ja muuttamiseen. Suorin tapa on viitata suoraan kenttiin: `olio.x = 3;` muuttaisi olion kentän x arvoksi 3. Kieli mahdollistaa myös olion kenttien arvoja käsittelevät getterit ja setterit. Erikoista niissä on funktioiden kutsutapa: vaikka kutsutaan funktiota, ei käytetä sulkuja. Näiden kahden funktion kutsuminen näyttää identtiseltä olion kenttään suoraan viittaamiseen, vaikka oikeasti kutsutaan funktiota jolla voi olla muitakin vaikutuksia. Tätä voi pitää eleganttina, kun ei tarvitse välittää viittaako getterifunktioon vai jonkun kentän arvoon. Mielestämme kuitenkin on vaarallista, että olion käyttäjä ei tiedä kutsuuko funktiota, ellei hän tiedä tämän olion kutsumisenhetkistä rakennetta. Jos funktiolla on sivuvaikutuksia, ei funktion kutsuja välttämättä tajua mistä ne johtuvat. Vaikka tällaiset sivuvaikutukset ehkä sopivat olio-ohjelmoinnin asenteeseen, jossa oliot vastaavat omasta datastaan ja toiminnastaan, kehottaisimme mahdollisuuksien mukaan pitämään funktiot niin puhtaina kuin mahdollista (kts. [ohjelmointityyleistä] (eka/ohjelmointityyleista.md)).
+JavaScript tarjoaa monia mahdollisuuksia myös olion kenttien arvojen käyttämiseen ja muuttamiseen. Suorin tapa on viitata suoraan kenttiin: `olio.x = 3;` muuttaisi olion kentän x arvoksi 3. Kieli mahdollistaa myös olion kenttien arvoja käsittelevät getterit ja setterit. Erikoista niissä on funktioiden kutsutapa: vaikka kutsutaan funktiota, ei käytetä sulkuja. Näiden kahden funktion kutsuminen näyttää identtiseltä olion kenttään suoraan viittaamiseen, vaikka oikeasti kutsutaan funktiota jolla voi olla muitakin vaikutuksia. Tätä voi pitää eleganttina, kun ei tarvitse välittää viittaako getterifunktioon vai jonkun kentän arvoon. Mielestämme kuitenkin on vaarallista, että olion käyttäjä ei tiedä kutsuuko funktiota, ellei hän tiedä tämän olion kutsumisenhetkistä rakennetta. Jos funktiolla on sivuvaikutuksia, ei funktion kutsuja välttämättä tajua mistä ne johtuvat. Vaikka tällaiset sivuvaikutukset ehkä sopivat olio-ohjelmoinnin asenteeseen, jossa oliot vastaavat omasta datastaan ja toiminnastaan, kehottaisimme mahdollisuuksien mukaan pitämään funktiot niin puhtaina kuin mahdollista (kts. [ohjelmointityyleistä](../eka/ohjelmointityyleista.md)).
 
 JavaScriptin vapaus mahdollistaa kenttien lisäämisen oliolle sen luomisen jälkeenkin. Tämä voi aiheuttaa tarkoittamattomia tilanteita kirjoitusvirheiden tapahtuessa: 
 
@@ -122,7 +122,7 @@ Seuraavan kerran ohjelmaa suorittaessa ohjelmoija kohtaa virheen ja saa selkeän
 
 function setAttribute(olio, kentanNimi, uusiArvo){
     if (olio[kentanNimi] === undefined)
-        throw ``Oliolla ${olio} ei ole kenttä nimeltä ${kentanNimi} ``
+        throw `Oliolla ${olio} ei ole kenttä nimeltä ${kentanNimi} `
     olio[kentanNimi] = uusiArvo; 
 }
 
