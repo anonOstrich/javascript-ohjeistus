@@ -12,16 +12,60 @@ Tehtävänanto
 
 * Kaavailkaa olioiden käytölle hyviä (ja jos mahdollista turvallisia) ohjelmointityylejä ja -malleja. Perustelkaa selkein selityksin ja antakaa lyhyitä mutta valaisevia esimerkkejä mielestänne hyvistä ohjelmointikäytännöistä. Tässä vaiheessa ei kuitenkaan vielä käsitellä periytymisen tekniikkaa!
 
-Hahmottelua
------------
 
-Mahdollisia käsiteltäviä:
-* Eri tavat olion ominaisuuksien accessaamiseen
-  * pistenotaatio vs merkkijono hakasuluissa: jälkimmäinen mahdollistaa dynaamisemman kenttien haun, mutta tässä voi olla myös riskejä. EI kannata käyttää, jos on pieninkään mahdollisuus, että käyttäjän syöte vaikuttaa haettavan kentän nimeen!
-* Olion luontimahdollisuus ja mitä pitäisi käyttäjän
-  * olioliteraali, new Object vai itse tehty konstruktori. Suositeltavaa varmaan literaali tai oma konstruktori, ainakaan nopeasti en keksi milloin keskimmäinen antaisi etua...
-* JavaScriptin vapaus on huono siinä mielessä, että jos tulee kirjoitusvirhe olion kentän arvoa muuttaessa. Tällöin voi luoda uuden kentän sen sijaan, että olisi muokannut olemassaolevaa kenttää. Onkohan mahdollista rajoittaa oliota niin, että sille ei esimerkiksi voi luoda uusia kenttiä? Muutoin tällaiseen väärinkirjoitukseen on vaikea varautua.
-* Hyvä malli lienee luoda olio konstruktorilla, heti tämän jälkeen lisätä konstruktorifunktion prototyyppioliolla toivottavat kaikkien olioiden jakamat funktiot ja muut attribuutit, joita ei konstruktorissa ole määritelty. Tällöin yhdessä paikassa hoidettu 'luokan' pystytys
-* Konstruktorifunktion prototyyppiolion muokkaaminen antaa mahdollisuuksia, joita vaikea toteuttaa ajon aikana esim Javassa. Mahdollista siis lisätä kaikille tämän prototyypin perijöille uusi metodi, mitä Javassa vastaisi luokkaan uuden attribuutin lisääminen.
-* Getterit /setterit - ei vahvaaa mielipidettä suuntaan tai toiseen.
-* Ehkä classien käytölle on perusteensa; pikasilmäyksellä vaikuttaisivat mahdollisesti tiivistävän asioita, joita toki voisi tehdä myös ilman niitä. Esim privaattimuuttujien määrittäminen, ja onhan niitä nyt selkeämpi lukea tietyllä tavalla. 
+
+Olioiden luonti
+---------------
+
+JavaScriptissä olioita voi luoda kolmella tavalla: olioliteraalina, konstruktorifunktion avulla, tai Object-funktion (joka on myös olio, jolla on kenttiä) create-funktiota kutsumalla. Olioliteraalit tarkoittavat tekstiin sellaisenaan kirjoitettuja olioita: 
+```javascript
+   var olio = {a: 0, b: 1}; 
+```
+
+Yksinkertaisin konstruktorifunktio olioiden luomiseen on Object. Tällöin luotavalla oliolla ei ole omia kenttiä, joita kaikilla muilla olioilla ei olisi: se vain perii Object-funktion prototyyppiolion kentät. Muut kentät on lisättävä luonnin jälkeen, seuraavaan tapaan: 
+
+```javascript
+ var olio = new Object(); 
+ olio.a = 0; 
+ olio.b = 1; 
+```
+
+On mahdollista käyttää myös muita valmiiksi määriteltyjä tai itse tehtyjä konstruktorifunktioita. Vaikka mitä tahansa funktiota voi käyttää konstruktorina new-komennon kanssa, ei tästä ole ainakaan hyötyä. Kannattaa pitäytyä kielen käytännössä, jossa konstruktorifunktioiden nimi alkaa isolla alkukirjaimella, ja muiden funktioiden pienellä. Itsetehdyllä konstruktorilla aiempien koodien olio voitaisiin muodostaa näin: 
+
+```javascript
+function Konstruktori(a, b){
+    this.a = a; 
+    this.b = b; 
+}
+
+var olio = new Konstruktori(0, 1);
+```
+
+
+Näin voidaan funktiolle annetuille parameterillä asettaa luotavan olion kenttien arvoja. Jos samantyyppisiä olioita luodaan useita, on oman konstruktorifunktion määritteleminen erittäin hyödyllistä. Saman efektin saisi aikaan myös luomalla Object.prototype:n välittömästi perivän objektin, jonka voisi antaa sitten parametriksi funktiolle, joka lisää sille tietyt kentät alkuarvoilla. Lienee kuitenkin selkeämpää käyttää konstruktoreja, ellei ole poikkeuksellista tilannetta. Toisaalta jos luodaan kertakäyttöinen olio, paras lähestymistapa saattaa olla lisätä ja poistaa sen kenttiä sangen vapaasti, ilman että sen luonnissa vielä määrittelee ainoatakaan kenttää. 
+
+Kolmas hieman eroava tapa on käyttää valmiin Object-funktio(-olio)n create-funktiota. Tämä mahdollistaa enemmän kuin vain kenttien nimien ja arvojen määrittämisen. Lisäksi voidaan kenttien käyttömahdollisuuksia: samoja asioita, joita Object-konstruktorin defineProperty-funktiolla voidaan muokatan. Luodaan  muuten samanlainen olio kuin aiemmissa esimerkeissä, mutta säädetään toisen kentän arvo muuttumattomaksi. create-funktion ensimmäinen parametri kertoo, mikä on luotavan olon yliolio: se on siis halutun konstruktorifunktion prototyyppiolio. 
+
+```javascript
+var olio = Object.create(Object.prototype, {
+  a: {
+      value: 0, 
+      writable: false
+  }, 
+  b: {value: 1}
+})
+```
+
+Luokat, getterit ja setterit
+----------------------------
+
+* Hyvää: luokan määrittelyssä voidaan määritellä oliometodit, toisin kuin konstruktorifunktiossa
+* Huonoa: luokat eivät tarjoa yhtä paljon kuin 'oikeat' luokat, ja saattavat hankaloittaa oliorakenteen ymmärtämistä. Toisaalta konstruktorifunktiot voivat vaatia hyvinkin konkreettista ymmärtämistä kielen toiminnasta; kostetaanhan suoraan konstruktorifunktion prototyyppiolion kenttään, jos konstuktorilla luotaville olioille halutaan määrittää fiksusti yhteisiä oliometodeja. Onko hyvä vaatia konkreettista ymmärrystä? Ehkä JavaScriptin tapauksessa on... Mutta ei toinenkaan huono ole. Pitäydy yhdessä.  
+* getterit ja setterit: hyi. Peruste: hyvin hämäävää, kun voi olla tilanne jossa luulee viittaavansa olion kenttään, mutta onkin **kutsunut** sen metodia ja saanut aikaan vaikutuksia. 
+
+Dynaamisuus ja vaarallisuus
+---------------------------
+*
+* Dynaamisesti valittavat kentät - vaarallista jos käyttäjä voi vaikuttaa merkkijonoon, joka määrää kentän.
+* Jos kirjoittaa kentän nimen väärin, saattaa luoda uuden muuttujan eikä muuttaa jo olemassaolevaa. Kutsumalla setterinomaisia funktioita (ei oletussettereitä, sillä niiden kutsumisen syntaksi on erilainen. ) aiheutuu virhe, mikä on hyvin toivottavaa!
+* 
