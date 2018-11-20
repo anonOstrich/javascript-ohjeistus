@@ -1,19 +1,6 @@
 Olioiden käyttämisestä
 ======================
 
-Tehtävänanto
-------------
-* Oliot ja niiden käyttäytyminen ovat JavaScriptissä hyvin omaperäisiä:
-  * Olioiden luonti ja käyttö on erittäin dynaamista: Olioita voidaan luoda monin tavoin, kenttiä voidaan lisätä ja poistaa, kenttiin voidaan viitata eri tavoin, myös dynaamisesti, kentän nimeksi kelpaa miltei mitä tahansa. Kenttien käyttötapaa ja käyttömahdollisuuksia voidaan säätää: numeroituvuus, kirjoitettavuus, muutettavuus, ...
-  * Konstruktorifunktion prototyyppiolioon voidaan liittää ominaisuuksia, jotka kaikki kyseisellä funktiolla konstruoidut oliot jakavat keskenään.
-  * Aksessoreita ("gettereitä" ja "settereitä") voidaan ohjelmoida omin käsin tai käyttää kielen tarjoamaa erityistekniikkaa.
-  * Käytössä on nykyään myös "syntaktisena sokerina" class-määrittely.
-  * Ym, ym, ...
-
-* Kaavailkaa olioiden käytölle hyviä (ja jos mahdollista turvallisia) ohjelmointityylejä ja -malleja. Perustelkaa selkein selityksin ja antakaa lyhyitä mutta valaisevia esimerkkejä mielestänne hyvistä ohjelmointikäytännöistä. Tässä vaiheessa ei kuitenkaan vielä käsitellä periytymisen tekniikkaa!
-
-
-
 Olioiden luonti
 ---------------
 
@@ -137,5 +124,13 @@ Poikkeuksen heittämisen sijaan funktio voisi myös palauttaa false tai undefine
 Dynaamisuus ja vaarallisuus
 ---------------------------
 
-* Dynaamisesti valittavat kentät - vaarallista jos käyttäjä voi vaikuttaa merkkijonoon, joka määrää kentän. Kuten edellisessä kohdassa huomattiin, tietyt hyödylliset asiat mahdollista tehdä vain tällä tavalla...
-* Milloin pitäisi asettaa arvo esim vain luettavaksi? 
+Olion kenttiin voi viitata kahdella tavalla: pistenotaatiolla (`olio.kentanNimi`) tai merkkijonolla, joka on hakasuluissa (`olio["kentanNimi"]`). Jälkimmäinen tapa mahdollistaa hyvin dynaamisen tavan olion kenttien käsittelylle, sillä merkkijono voidaan muodostaa muuttujista, joiden arvot selviävät vasta ajon aikana. Samoin yleiskäyttöisten työkalufunktioiden luominen on mahdollista: aikaisemmin esittelemämme setAttribute toimii, koska on mahdollista tutkia olion kenttää, jonka nimi selviää vasta funktiota kutsuttaessa. On siis selkeästi tilanteita, joissa tämän dynaamisemman merkkijonoviitteen käyttäminen on hyvin perusteltua. 
+
+Toisaalta vapautta ei ole syytä käyttää tarpeettomasti. Pistenotaatiolla on ainakin selvää, mihin kenttään viitataan; hakasulkutekniikalla tätä ei välttämättä näe kenttään viittaamiskohdassa, sillä merkkijonon muodostaminen on saattanut tapahtua muualla. Erityisesti kannattaa harkita tarkoin, antaako ohjelman käyttäjän vaikuttaa viitattavaan kenttään - tämä antaa käyttäjille voimakkaan työkalun viitata mihin tahansa olion tai sen yliolioiden kenttään. 
+
+
+
+
+*Jos haluaa kirjoittaa lisää* 
+
+* kenttien arvon read-only, muut rajoitteet? 
