@@ -45,4 +45,4 @@ sulkeuma.getSulkeumaArvo(); // palauttaa 99
 ```
 
 
-[Olioden käyttämisestä](toka/olioista.md)
+[Olioden käyttämisestä](olioista.md)
