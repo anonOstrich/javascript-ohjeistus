@@ -127,10 +127,3 @@ Dynaamisuus ja vaarallisuus
 Olion kenttiin voi viitata kahdella tavalla: pistenotaatiolla (`olio.kentanNimi`) tai merkkijonolla, joka on hakasuluissa (`olio["kentanNimi"]`). Jälkimmäinen tapa mahdollistaa hyvin dynaamisen tavan olion kenttien käsittelylle, sillä merkkijono voidaan muodostaa muuttujista, joiden arvot selviävät vasta ajon aikana. Samoin yleiskäyttöisten työkalufunktioiden luominen on mahdollista: aikaisemmin esittelemämme setAttribute toimii, koska on mahdollista tutkia olion kenttää, jonka nimi selviää vasta funktiota kutsuttaessa. On siis selkeästi tilanteita, joissa tämän dynaamisemman merkkijonoviitteen käyttäminen on hyvin perusteltua. 
 
 Toisaalta vapautta ei ole syytä käyttää tarpeettomasti. Pistenotaatiolla on ainakin selvää, mihin kenttään viitataan; hakasulkutekniikalla tätä ei välttämättä näe kenttään viittaamiskohdassa, sillä merkkijonon muodostaminen on saattanut tapahtua muualla. Erityisesti kannattaa harkita tarkoin, antaako ohjelman käyttäjän vaikuttaa viitattavaan kenttään - tämä antaa käyttäjille voimakkaan työkalun viitata mihin tahansa olion tai sen yliolioiden kenttään. 
-
-
-
-
-*Jos haluaa kirjoittaa lisää* 
-
-* kenttien arvon read-only, muut rajoitteet? 
