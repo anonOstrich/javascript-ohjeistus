@@ -10,5 +10,5 @@ Jesper Kuutti, Thierry Botty, Eemil Haapsaari
 * [Ohjelmointityyli - funtionaalinen vai imperatiivinen?](eka/ohjelmointityyleista.md)
 
 ### Viikko 2
-* Sulkeumat
+* [Sulkeumat](toka/sulkeumat.md)
 * [Olioden käyttämisestä](toka/olioista.md)
