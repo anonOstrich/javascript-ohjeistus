@@ -40,7 +40,7 @@ function Sulkeuma(){
   Näin olemme luoneet funktion jota voi käsitellä luokan tavoin ja sen tiedot säilyvät, vaikka sen suoritus olisikin loppunut.
 */
 sulkeuma = Sulkeuma();
-sulkeuma.setSulkeumaArvo(99);
+sulkeuma.setSulkeumaArvo(99); // asettaa arvon 99
 sulkeuma.getSulkeumaArvo(); // palauttaa 99
 ```
 
