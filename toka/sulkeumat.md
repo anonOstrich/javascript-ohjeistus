@@ -8,12 +8,23 @@ Sulkeuma on erittäin hyödyllinen ohjelmointitekniikka, jossa funktion sisäll�
 Sulkeuman sidottu muuttuja on sellainen, joka on olemassa ja merkityksellinen vaan funktion sisällä sen suorituksen aikana.
 Sulkeuman vapaan muuttujaan voi viitata, vaikkei sisälly itse funktioon.
 
-Esimerkissä Sulkeumaan suljetut vapaat muuttujat säilyvät sulkeuman suorituksen jälkeiseen aikaan.
+### Sulkeumaan suljetut vapaat muuttujat säilyvät sulkeuman suorituksen jälkeiseen aikaan.
 
 ```javascript
-koodiesimerkki
+function lisaa(x) {
+  var a = 12;
+  function jotain() {
+    a -= 2;
+    return a
+  }
+  return a + x;
+
+write(lisaa(2))
 ```
-Sulkeumaan suljetuttujen vapaiden muuttujien määritellyt funktio päättyy, mutta sulkeuma säilyy.
+
+
+
+### Sulkeumaan suljetuttujen vapaiden muuttujien määritellyt funktio päättyy, mutta sulkeuma säilyy.
 
 ```javascript
 koodiesimerkki
