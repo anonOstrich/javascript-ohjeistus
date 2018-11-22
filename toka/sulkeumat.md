@@ -11,18 +11,19 @@ Sulkeuman vapaan muuttujaan voi viitata, vaikkei sisälly itse funktioon.
 ### Sulkeumaan suljetut vapaat muuttujat säilyvät sulkeuman suorituksen jälkeiseen aikaan.
 
 ```javascript
-function lisaa(x) {
-  var a = 12;
-  function jotain() {
-    a -= 2;
-    return a
+function kasvatayhdella() {
+  var summa=0;
+  return function() {
+    summa++;
+    return summa;
   }
-  return a + x;
+}
 
-write(lisaa(2))
+var f = kasvatayhdella()
+write(f()) //1
+write(f()) //2
+write(f()) //3
 ```
-
-
 
 ### Sulkeumaan suljetuttujen vapaiden muuttujien määritellyt funktio päättyy, mutta sulkeuma säilyy.
 
