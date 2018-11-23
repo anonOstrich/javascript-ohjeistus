@@ -12,3 +12,6 @@ Jesper Kuutti, Thierry Botty, Eemil Haapsaari
 ### Viikko 2
 * [Sulkeumat](toka/sulkeumat.md)
 * [Olioden käyttämisestä](toka/olioista.md)
+
+## Viikko 3
+* [Periytyminen](kolmas/periytymisesta.md)
