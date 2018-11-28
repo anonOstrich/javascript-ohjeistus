@@ -1,33 +1,5 @@
 # Olioiden periytyminen
 
-
-## Tehtävänanto
-
-
-* Tunnetusti ("I hope"! ;-)) olio-ohjelmoinnin periytymistekniikan kaksi tärkeää tavoitetta ovat: a) ratkaistavan ohjelmointiongelman käsitteiden luonteva mallintaminen ja siten siis ongelman ratkaisijan ajattelun selkeyttäminen ja helpottaminen, sekä toisaalta b) koodin turhan kopioimisen välttäminen, koodin uudelleenkäyttö.
-
-* Pyrkikää hahmottamaan ja löytämään, millaiset JavaScriptin ohjelmointitekniikat mahdollisimman hyvin palvelisivat näitä tavoitteita. Perusteluja tarvitaan!
-
-
-## Mitä ehkä voi käsitellä 
-
-* Periytymisen toteuttamisen tavat
-  * Konstruktorin avulla luominen
-  * __proto__-kentän arvon manuaalinen asettaminen
-  * Object.create-funktiolla luotavan olion prototyypin osoittaminen
-* Superin käyttäminen
-* Mikä perinnässä voi mennä pieleen: erot liittyen arvon hakemiseen ja asettamiseen (asetettaessa x.b = c joko muutetaan x:n kenttää b tai luodaan x:llä tällainen uusi kenttä; koskaan ei edetä x:n prototyyppiin sen kenttieä tarkastelemaan. Sen sijaan kutsuessa x.b etsitään koko sen prototyyppiketjusta kenttää b liikkuen aina seuraavaan __proto__-kentän osoittamaan arvoon). 
-
-Erikseen mainitut asiat: 
-* Perintä loogisen ja auttavan ongelma-alueen mallintamisen välineenä
-  * periminen: is-a, eli aina tarkentuvia olioita
-  * onko muiden kuin 'oikeiden' olioiden periytyminen fiksua? Esim funktioiden/taulukoiden monimutkaisempi periytyminen? Tähän asti nähty vain funktioita joiden __proto__ on Function.prototype, ehkä syystä? 
-
-* koodin turhan kopioimisen välttäminen aka koodin uudelleenkäyttö
-  * jos olion toiminnallisuus on jonkin toisen olion toiminnallisuus + ekstraa => periminen hyvinkin aiheellista
-
-* Jotain mikä JavaScriptin periytymisessä voi olla yllättävää muista kielistä tulijoille?
-
 ## Super
 Usein pelkän prototyyppitetjun päähän lisääminen ei ole kaikki, mitä perinnältä halutaan. Esimerkiksi voidaan haluta, että alialioita luova konstruktori hyödyntää yliolioita luovan konstruktoria. Voi olla, että aliolioita luodessa halutaan esimerkiksi oletuksena antaa ylikonstruktorifunktiolle eri parametri, kuin sen oletusarvo on. Tällöin ei riitä, että luodun aliolion prototyypillä on kenttä, jossa on oletus arvo. Tutkitaan seuraavaan koodin aiheuttamaa rakenteiden linkitystilannetta: 
 ```javascript
@@ -59,5 +31,68 @@ function Ali(n, nimi){
 Ali.prototype = new Yli(); 
 a = new Ali(3, "jukka"); 
 ```
-Mikään JavaScriptissa ei velvoita muuttamaan Ali-funktion prototyyppiolioita Yli-funktiolla konstruoituun olioon. Olisi mahdollista siis, että Yli ja Ali eivät olisi niinkään lapsi ja vanhempi, vaan kaksi sisarusta (molempien funktioiden prototyyppioliot viittaisivat Object-funktion prototyyppiolioon __proto__-kentillään). Tällöinkin Ali voisi käyttää Yliä tällä tavalla, jolloin tietyllä tavalla Alin konstruoimat oliot sisältävät samoja kompotennteja. Jos Yli taas perisi muita olioita, eivät ketjun varrella olevat ominaisuudet kuuluisi Alilla luotuihin olioihin. Tällaisessa tapauksessa ei siis olisi kyse 'oikeasta' perimisestä. 
+Koska Alilla luotaville olioille ei päädy ylimääräistä super-kenttää, säästää ratkaisu hieman tilaa. Muista ohjelmointikielistä tulleille superin käyttäminen voi olla helpompaa ymmärtää, sillä call ei pelkästään koodia katselemalla välttämättä aukea lukijalle. 
+
+Mikään JavaScriptissa ei velvoita muuttamaan Ali-funktion prototyyppiolioita Yli-funktiolla konstruoituun olioon. Olisi mahdollista siis, että Yli ja Ali eivät olisi niinkään lapsi ja vanhempi, vaan kaksi sisarusta (molempien funktioiden prototyyppioliot viittaisivat Object-funktion prototyyppiolioon __proto__-kentillään). Tällöinkin Ali voisi käyttää Yliä tällä tavalla, jolloin tietyllä tavalla Alin konstruoimat oliot sisältävät samoja kompotennteja. Jos Yli taas perisi muita olioita, eivät ketjun varrella olevat ominaisuudet kuuluisi Alilla luotuihin olioihin. Tällaisessa tapauksessa ei siis olisi kyse 'oikeasta' perimisestä.
+
+Vaikka yleisesti kannustamme JavaScriptin käyttämiseen melko samalla tavalla kuin muita ohjelmointikieliä, haluamme nostaa esiin erään perintätavan joka sekoittaa perintään piirteitä useammasta oliosta: 
+
+```javascript
+function Eri(kentta){
+   this["${kentta}"] = 42;
+}
+
+function Yli(n){
+  this.arvo = n || 0; 
+}
+
+function Ali(n, nimi){
+  Yli.call(this, n); 
+  Eri.call(this, "vastaus"); 
+  this.name = nimi || "nobody"; 
+}
+
+Ali.prototype = new Yli(); 
+a = new Ali(3, "jukka"); 
+
+// a:n kentät:
+// arvo: 3, name: "jukka", vastaus: 42
+
+```
+Alin konstruktori lisää tuottamiinsa olioihin Erin määrittelemiä ominaisuuksia sen lisäksi, että luodut olion kuuluvat __proto__-ketjuun, jonka Yli-konstruktorifunktion prototyyppiolio on. Mikään ei estä tällä tavalla poimimasta ominaisuuksia monesta paikasta. Mahdollistahan olisi myös konstruktorifunktioiden "oma perintäketju" ja niillä luotujen olioiden "oma perintäketju". Hahmotellaan asiaa: 
+
+```javascript
+function Eki(laatu){
+  Kaukainen.call(this); 
+  this.softness = laatu; 
+}
+
+function Eri(laatu, kentta){
+   Eki.call(this, laatu); 
+   this["${kentta}"] = 42;
+}
+
+function Yli(n){
+  this.arvo = n || 0; 
+}
+
+function Ali(n, nimi){
+  Eri.call(this, "karhea", "vastaus"); 
+  this.name = nimi || "nobody"; 
+}
+
+Ali.prototype = new Yli(); 
+a = new Ali(3, "jukka"); 
+
+// a:n kentät:
+// arvo: 3, name:"jukka", vastaus: 42, softness: "karhea", ...
+
+```
+Ilmeistä on uhka sille, että perintätilannetta ei enää jossain vaiheessa. Tällaisen toiminnallisuuden hyödyntämistä ei kannata sulkea automaattisesti iäksi mahdottomaksi; syytä on tosin dokumentoida ajatuksensa ja suunniteltava toteutusjärjestely tarkkaan. Onneksi ainakin Chrome-selaimen JavaScript-suoritusympäristö heittää poikkeuksen, jos __proto__-viittaukset aiheuttavat silmukan.
+
+
 ## Perintä ongelma-alueen loogisena jäsentelytapana
+
+Perintä on kaiken kaikkiaan JavaScriptissä hyvin helppoa: riittää muuttaa yksittäistä viitettä osoittamaan eri olioon. Koodin uudelleenkirjoittamisen vähentämiseksi saattaa ollakin houkutus periä ainakin joksikin aikaa olio, jonka alailmentymä perivä olio ei varsinaisesti ole. Periminen yleisesti tarkoittaa, että perivä olio täyttää kaiken toiminnallisuuden kuin sen yläolio, ja jotain muuta / kenties eri tavalla. Sekaannuksen välttämiseksi (etenkin jos et työstä ohjelmointiprojektia yksin) on yleensä parasta pitäytyä tässä perimisen määrittelyssä. 
+
+Erityishuomautuksena: tuskin koskaan on järkevää että esimerkiksi taulukko perii funktion. Poikkeuksen tähän muodostavat kielen valmiit perintäsuhteet, kuten sen että Function-funktion __proto__-kenttä osoittaa 'oikeaan' olioon. 
