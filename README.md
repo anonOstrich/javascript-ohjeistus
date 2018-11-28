@@ -14,4 +14,5 @@ Jesper Kuutti, Thierry Botty, Eemil Haapsaari
 * [Olioden käyttämisestä](toka/olioista.md)
 
 ## Viikko 3
-* [Periytyminen](kolmas/periytymisesta.md)
+* [Periytymisen tapoja](kolmas/periytymistavat.md)
+* [Periytymisestä muutoin](kolmas/periytymisesta.md)
