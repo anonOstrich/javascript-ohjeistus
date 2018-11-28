@@ -1,8 +1,7 @@
 
 # Olioiden periytyminen
 
-Javascript kielessä on mahdollista luoda periytyviä olioita. Tämä tarkoittaa sitä, että me luomme olion, joka perii ominaisuuksia toiselta oliolta. Tämä ominaisuus on suuressa roolissa, kun haluamme välttää koodin toistuvuutta ohjelman koodissa. Esimerkiksi, jos mallintaisimme koulun oppilaita sekä henkilökuntaa, voisimme luoda olion, joka määrittää kaikki arvot, jotka esiintyvät kaikilla olioilla, kuten nimi sekä ikä.
-
+JavaScript-kielessä on mahdollista luoda periytyviä olioita. Tämä tarkoittaa sitä, että me luomme olion, joka perii ominaisuuksia toiselta oliolta. Perinnän rooli on tärkeä, kun haluamme välttää koodin toistuvuutta ohjelman koodissa. Esimerkiksi, jos mallintaisimme koulun oppilaita sekä henkilökuntaa, voisimme luoda olion, joka määrittää kaikki arvot, jotka esiintyvät kaikilla olioilla, kuten nimi sekä ikä. 
 ## Perintä
 
 ```javascript
@@ -33,7 +32,7 @@ var opettaja = new Opettaja('Kalle', 3, 'cs');
 
 ```
 
-Koska haluamme, että opettajilla sekä oppilailla on yhteisiä kenttiä, on meidän järkevä luoda olio, jonka molemmat perivät. Tässä esimerkissä koulun oppilaat ja opettajat perivät henkilö-luokan asettaen sen arvot käyttämällä call-funktiota. Call-funtiossa ensimmäinen arvo 'this' määrittää perivän luokan ja loput parametrit ovat arvot, jotka perittävä luokka asettaa.
+Koska haluamme, että opettajilla sekä oppilailla on yhteisiä kenttiä, on meidän järkevä luoda olio, jonka molemmat perivät. Tässä esimerkissä koulun oppilaat ja opettajat perivät Henkilö-konstruktorilla luodun olion. Ne asettavat alkuarvot arvot käyttämällä Henkilö-funktion call-funktiota. Call-funtiossa ensimmäinen arvo 'this' määrittää perivän luokan ja loput parametrit ovat arvot, jotka perittävä luokka asettaa.
 
 Yläpuolella luomme perinnät käyttäen prototype:ä sekä Object.create funktiota. Nyt luoduille opettajalla sekä oppilaalla on molemmilla henkilö sekä oman luokkansa ominaisuudet.
 
