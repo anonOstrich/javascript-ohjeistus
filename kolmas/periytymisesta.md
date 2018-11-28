@@ -39,7 +39,7 @@ Vaikka yleisesti kannustamme JavaScriptin käyttämiseen melko samalla tavalla k
 
 ```javascript
 function Eri(kentta){
-   this["${kentta}"] = 42;
+   this[`${kentta}`] = 42;
 }
 
 function Yli(n){
@@ -69,7 +69,7 @@ function Eki(laatu){
 
 function Eri(laatu, kentta){
    Eki.call(this, laatu); 
-   this["${kentta}"] = 42;
+   this[`${kentta}`] = 42;
 }
 
 function Yli(n){
