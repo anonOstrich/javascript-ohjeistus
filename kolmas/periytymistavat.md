@@ -73,4 +73,4 @@ class Opettaja extends Henkilo { // periytyminen lisäämällä extends
 }
 
 ```
-[Periytymisestä muutoin](kolmas/periytymisesta.md)
+[Periytymisestä muutoin](periytymisesta.md)
