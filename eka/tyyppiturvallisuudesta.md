@@ -122,3 +122,5 @@ Vastaavasti voisimme luoda tarkistuksen sille sisältääkö taulukko vain lukuj
     return Object.prototype.toString.call(input) == '[object Boolean]';
   }
 ```
+
+## [Olioden käyttämisestä](../toka/olioista.md)
