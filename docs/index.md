@@ -7,7 +7,7 @@ Kirjoittaneet: Eemil Haapsaari, Thierry Botty ja Jesper Kuutti
 
 ### Ohjelmointityyleistä
 
-* [Ohjelmointityyli - funtionaalinen vai imperatiivinen?](../eka/ohjelmointityyleista.md)
+* [Ohjelmointityyli - funtionaalinen vai imperatiivinen?](eka/ohjelmointityyleista.md)
 
 
 ### Funktioiden käytöstä
