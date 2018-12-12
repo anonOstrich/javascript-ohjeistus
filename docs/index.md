@@ -7,15 +7,15 @@ Kirjoittaneet: Eemil Haapsaari, Thierry Botty ja Jesper Kuutti
 
 ### Ohjelmointityyleistä
 
-* [Ohjelmointityyli - funtionaalinen vai imperatiivinen?](eka/ohjelmointityyleista.md)
+* [Ohjelmointityyli - funtionaalinen vai imperatiivinen?](../eka/ohjelmointityyleista.md)
 
 
 ### Funktioiden käytöstä
-* * [Sulkeumat](toka/sulkeumat.md)
+* [Sulkeumat](../toka/sulkeumat.md)
 
 ### Olioista
 
-* [Tyyppiturvallisuus](eka/tyyppiturvallisuudesta.md)
-* [Olioden käyttämisestä](toka/olioista.md)
-* [Periytymisen tapoja](kolmas/periytymistavat.md)
-* [Periytymisestä muutoin](kolmas/periytymisesta.md)
+* [Tyyppiturvallisuus](../eka/tyyppiturvallisuudesta.md)
+* [Olioden käyttämisestä](../toka/olioista.md)
+* [Periytymisen tapoja](../kolmas/periytymistavat.md)
+* [Periytymisestä muutoin](../kolmas/periytymisesta.md)
