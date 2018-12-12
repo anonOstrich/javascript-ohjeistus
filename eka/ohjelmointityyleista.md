@@ -98,4 +98,4 @@ Olio-ohjelmointi on laajalle levinnyt imperatiivisen ohjelmoinnin alatyyli, ja s
 
  Imperatiivisen ohjelmoinnin suoritusjärjestys voi olla melko luonnollisen näköistä ja helposti seurattavaa. Silmukat ja ehtojen avulla suorituksen ohjaaminen ovat nopea ja selkeä ratkaisu useassa tilanteessa.
 
-### [Algoritmeista](/algoritmeista.md)
+### [Algoritmeista](/eka/algoritmeista.md)
