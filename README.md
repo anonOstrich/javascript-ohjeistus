@@ -6,20 +6,11 @@ Kirjoittaneet: Eemil Haapsaari, Thierry Botty ja Jesper Kuutti
 ## Sisällysluettelo:
 
 
-### Ohjelmointityyleistä
+[Tietotyypeistä](1-tietotyypit)
 
-* [Ohjelmointityyli - funtionaalinen vai imperatiivinen?](eka/ohjelmointityyleista.md)
+[Ohjelmointityylistä](#2-ohjelmointityyleistä)
 
-
-### Funktioiden käytöstä
-* [Sulkeumat](../toka/sulkeumat.md)
-
-### Olioista
-
-* [Tyyppiturvallisuus](../eka/tyyppiturvallisuudesta.md)
-* [Olioden käyttämisestä](../toka/olioista.md)
-* [Periytymisen tapoja](../kolmas/periytymistavat.md)
-* [Periytymisestä muutoin](../kolmas/periytymisesta.md)
+[Olioista](#3-oliot)
 
 
 
