@@ -1,18 +1,21 @@
 # Javascript hyvät käytännöt
-Jesper Kuutti, Thierry Botty, Eemil Haapsaari
+
+Kirjoittaneet: Eemil Haapsaari, Thierry Botty ja Jesper Kuutti
 
 ## Sisällysluettelo:
 
-### Viikko 1
 
-* [Tyyppiturvallisuus](eka/tyyppiturvallisuudesta.md)
-* [Millaiset algoritmit sopivat JavaScriptiin](eka/algoritmeista.md)
+### Ohjelmointityyleistä
+
 * [Ohjelmointityyli - funtionaalinen vai imperatiivinen?](eka/ohjelmointityyleista.md)
 
-### Viikko 2
-* [Sulkeumat](toka/sulkeumat.md)
-* [Olioden käyttämisestä](toka/olioista.md)
 
-## Viikko 3
+### Funktioiden käytöstä
+* * [Sulkeumat](toka/sulkeumat.md)
+
+### Olioista
+
+* [Tyyppiturvallisuus](eka/tyyppiturvallisuudesta.md)
+* [Olioden käyttämisestä](toka/olioista.md)
 * [Periytymisen tapoja](kolmas/periytymistavat.md)
 * [Periytymisestä muutoin](kolmas/periytymisesta.md)
