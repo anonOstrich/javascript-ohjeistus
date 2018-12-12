@@ -11,7 +11,7 @@ Kirjoittaneet: Eemil Haapsaari, Thierry Botty ja Jesper Kuutti
 
 
 ### Funktioiden käytöstä
-* * [Sulkeumat](toka/sulkeumat.md)
+* [Sulkeumat](toka/sulkeumat.md)
 
 ### Olioista
 
