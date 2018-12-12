@@ -97,3 +97,5 @@ Ohjelmiston tilan muokkaaminen on selvästi helpompaa ja nopeampaa, kun funktioi
 Olio-ohjelmointi on laajalle levinnyt imperatiivisen ohjelmoinnin alatyyli, ja se voi olla looginen tapa jäsentää ohjelman toimintaa. Usein olion omat funktiot muokkaavat myös olion muiden muuttujien arvoja, jolloin kyse ei ole puhtaista funktioista. Jos olioilla järjestyksen saaminen tuntuu luontevalta tavalta, kannattaa noudataa sitä paradigmaa.
 
  Imperatiivisen ohjelmoinnin suoritusjärjestys voi olla melko luonnollisen näköistä ja helposti seurattavaa. Silmukat ja ehtojen avulla suorituksen ohjaaminen ovat nopea ja selkeä ratkaisu useassa tilanteessa.
+
+### [Funktioiden käytöstä](../toka/sulkeumat.md)
