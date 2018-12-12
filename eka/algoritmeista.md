@@ -16,4 +16,4 @@ Tyypittömyyden hyötyjä on se, että voi kirjoittaa funktioita jotka toimivat 
 
 
 
-
+### [Funktioiden käytöstä](../toka/sulkeumat.md)
