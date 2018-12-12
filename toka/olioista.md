@@ -128,4 +128,4 @@ Olion kenttiin voi viitata kahdella tavalla: pistenotaatiolla (`olio.kentanNimi`
 Toisaalta vapautta ei ole syytä käyttää tarpeettomasti. Pistenotaatiolla on ainakin selvää, mihin kenttään viitataan; hakasulkutekniikalla tätä ei välttämättä näe kenttään viittaamiskohdassa, sillä merkkijonon muodostaminen on saattanut tapahtua muualla. Erityisesti kannattaa harkita tarkoin, antaako ohjelman käyttäjän vaikuttaa viitattavaan kenttään - tämä antaa käyttäjille voimakkaan työkalun viitata mihin tahansa olion tai sen yliolioiden kenttään. 
 
 
-## [Periytymisen tapoja](kolmas/periytymistavat.md)
+## [Periytymisen tapoja](../kolmas/periytymistavat.md)
