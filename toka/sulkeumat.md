@@ -46,4 +46,4 @@ sulkeuma.getSulkeumaArvo(); // palauttaa 99
 ```
 
 
-[Olioden käyttämisestä](olioista.md)
+## [Tyyppiturvallisuus](../eka/tyyppiturvallisuudesta.md)
