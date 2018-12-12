@@ -1,4 +1,5 @@
-# Javascript hyvät käytännöt
+JavaScript - hyvät käytännöt
+============================
 
 Kirjoittaneet: Eemil Haapsaari, Thierry Botty ja Jesper Kuutti
 
@@ -22,13 +23,13 @@ Kirjoittaneet: Eemil Haapsaari, Thierry Botty ja Jesper Kuutti
 
 
 
-## Tyyppiturvallisuus 
+## 1. Tietotyypit
 
-## Tyyppiturvallisuudesta
+### Tyyppiturvallisuudesta
 
 Javascriptille ominaista on muuttujien dynaaminen määritys. Se mahdollistaa monipuolisten funktioiden kirjoittamisen, koska sama funktio voi käsitellä eri muuttuja tyyppejä. Kuitenkin, koska javascriptissä muuttujilla ei ole tyyppiä vaan ainoastaan niiden arvolla, tulisi kehittäjän ottaa erityisesti huomioon olioiden tyypit ja niiden mahdollinen muuttuminen ohjelman aikana.
 
-### kokonaisluku
+#### kokonaisluku
 
 Javascriptissa voimme ohjelman aikana tarkistaa simppelillä jos-lauseella, että onko muuttuja jotain tiettyä tyyppiä. Esimerkiksi voimme kysyä onko tyyppi numero funktiolla 'typeof'.
 
@@ -75,7 +76,7 @@ Kuitenkin, jos luku muuttuja olio luodaan käyttäen konstruktoria, ei juuri kir
 
 ```
 
-### Yleisesti jokin luku
+#### Yleisesti jokin luku
 
 Aikaisemmassa vaiheessa tarkistimme onko luku kokonaisluku. Kuitenkin luomamme funktio palauttaa arvon "false", jos arvo on numeerinen muttei kokonaisluku. Esimerkiksisyötteet "NaN" ja "infinity" palauttavat arvon "false", vaikka ne ovat valideja numeerisia arvoja, koska ne voivat olla osana laskutoimitusta esim. tuloksena. Kuitenkin, koska voimme saada vastauksen "NaN" myös laittomasta toimituksesta, voimme todeta, että meidän tulisi suodattaa myös ne pois tarkistaessamme onko arvo numeerinen. Myös "infinity" voidaan rajata pois haluamistamme syötteistä lisäämällä "isFinite(input)". Tällöin voimme muodostaa funktion:
 
@@ -98,7 +99,7 @@ Nyt kun meillä on oma tarkistus sille, onko arvona jokin luku, voisimme myös m
 
 ```
 
-### Lukutaulukot
+#### Lukutaulukot
 
 Kuvitellaan tilanne, jossa käsittelemmä taulukkoa, jonka arvoina pitäisi olla pelkästään kokonaislukuja esimerkiksi [1,2,3]. Haluaisimme varmistaa lukujen olevan kokonaislukuja. Voisimme ratkaista tämän ongelman luomalla funktion, joka tarkistaa yksitellen jokaisen arvon ja palauttaa false, jos törmää arvoon, joka ei ole kokonais luku. Voimme käyttää tässä apuna aiemmin luomaamme funktiota kokonaisluvun tarkistukseen. Jos taulukosta puolestaan ei löydy muita kuin kokonaislukuja palauttaa funktio true.
 
@@ -130,7 +131,7 @@ Vastaavasti voisimme luoda tarkistuksen sille sisältääkö taulukko vain lukuj
 
 ```
 
-### Muita tarkistuksia
+#### Muita tarkistuksia
 
 Äsken tarkistimme sitä ovatko arvot numeerisia. Vastaavasti voimme tarkistaa myös sen ovatko luvut merkkijonoja taikka totuusarvoja.
 
@@ -149,11 +150,9 @@ Vastaavasti voisimme luoda tarkistuksen sille sisältääkö taulukko vain lukuj
 ```
 
 
-## Yleisesti - millaiset algoritmit soveltuvat JavaScriptiin
+## Miten algoritmien pitäisi huomioida tyypit
 
 JavaScript sallii hyvin monenlaiset käytännöt tyypittömyydellään, joten se sallii myös erittäin monia tapoja kirjoittaa ja käyttää algoritmeja. Tässäkään asiassa tuskin on syytä täysin sulkea pois eriskummallisiä käytäntöjä; saattaa olla yksittäistapauksia, joissa esimerkiksi Javalle haastava/mahdoton funktio on yksinkertaisin tapaus.
-
-### Miten muuttujien/parametrien/funktioiden tyypittömyys pitäisi ottaa huomioon?
 
 Funktioiden kirjoittaja tekee lähes aina oletuksia siitä, millaisia syötteitä funktio tulee saamaan. Teknisesti mikään ei estä minkääntyyppisen parametrin arvoa, mutta esimerkiksi matemaattiset funktiot odottavat aina 'number'-tyyppistä parametria. Etenkin kun funktiota käyttävät mahdollisesti muutkin kuin sen kirjoittaja, on funktion tarpeen tehdä jonkinlaista tyypin tarkastamista parametreilleen. Esimerkiksi esittelemämme [HIENO INTERTEKSTUAALINEN VIITTAUS] voi tarkastaa, että annettu parametri on sopiva luku. Tietysti jos jokaisen muuttujan tyyppi tarkastetaan hyvin usein funktioissa, menetetään osa tyypittömyyden eduista - eikö olisi kätevämpää vain käyttää tyyppejä, jolloin voi olla varma esimerkiksi funktion saamien parametrien laadusta? Mahdollisesti tarkastamista voi jättää vähemmälle kattavalla dokumentaatiolla, josta selviää tarkasti minkälaisilla parametreilla funktion voi odottaa toimivan oikein. Silti tyyppitarkastukset estävät mahdolliset huolimattomuusvirheistä syntyvät epäselvyydet, joissa virheen paikallistaminen voi olla haastavaa. 
 
@@ -163,7 +162,7 @@ Tyypittömyyden hyötyjä on se, että voi kirjoittaa funktioita jotka toimivat 
 
 
 
-## Ohjelmointityyleistä
+## 2. Ohjelmointityyleistä
 Ohjelmointityylivalinnan tulisi perustua niillä saavutettaviin hyötyihin, eikä esimerkiksi yhden paradigman vankkumattomaan kannatukseen. Koska JavaScript mahdollistaa monenlaiset ohjelmointityylit, kannattaa ohjelmoijan valita kuhunkin tilanteeseen sopiva lähestymistapa. Joitain hyvän ohjelmoinnin tunnuspiirteitä ovat helppous (aina ei kannata hakea tyylikkäintä mahdollista ratkaisua, jos melko tyylikäs toteutuu murto-osassa tämän vaatimasta ajasta), selkeys, yhteneväisyys ja ylläpidettävyys. Yhteneväisyyden vuoksi ei kannata valita aivan satunnaiseseti vuorotellen imperatiivisia ja funktionaalisia ratkaisuja, vaan pyrkiä tekemään samanlaiset asiat samalla tyylillä useimmiten.
 
 ### Funktionaalisen tyylin hyötyjä
@@ -261,8 +260,8 @@ Olio-ohjelmointi on laajalle levinnyt imperatiivisen ohjelmoinnin alatyyli, ja s
  Imperatiivisen ohjelmoinnin suoritusjärjestys voi olla melko luonnollisen näköistä ja helposti seurattavaa. Silmukat ja ehtojen avulla suorituksen ohjaaminen ovat nopea ja selkeä ratkaisu useassa tilanteessa.
 
 
-Funktiot JavaScriptissä
-=======================
+## Funktiot JavaScriptissä
+
 
  
 ### Sulkeumista
@@ -310,7 +309,10 @@ sulkeuma = Sulkeuma();
 sulkeuma.setSulkeumaArvo(99); // asettaa arvon 99
 sulkeuma.getSulkeumaArvo(); // palauttaa 99
 ```
- ### Olioiden luonti
+
+## 3. Oliot
+
+### Olioiden luonti
 
 
 JavaScriptissä olioita voi luoda kolmella tavalla: olioliteraalina, konstruktorifunktion avulla, tai Object-funktion (joka on myös olio, jolla on kenttiä) create-funktiota kutsumalla. Olioliteraalit tarkoittavat tekstiin sellaisenaan kirjoitettuja olioita: 
@@ -435,11 +437,11 @@ Olion kenttiin voi viitata kahdella tavalla: pistenotaatiolla (`olio.kentanNimi`
 
 Toisaalta vapautta ei ole syytä käyttää tarpeettomasti. Pistenotaatiolla on ainakin selvää, mihin kenttään viitataan; hakasulkutekniikalla tätä ei välttämättä näe kenttään viittaamiskohdassa, sillä merkkijonon muodostaminen on saattanut tapahtua muualla. Erityisesti kannattaa harkita tarkoin, antaako ohjelman käyttäjän vaikuttaa viitattavaan kenttään - tämä antaa käyttäjille voimakkaan työkalun viitata mihin tahansa olion tai sen yliolioiden kenttään. 
 
-## Periytymisestä 
+### Periytymisestä 
 
 JavaScript-kielessä on mahdollista luoda periytyviä olioita. Tämä tarkoittaa sitä, että me luomme olion, joka perii ominaisuuksia toiselta oliolta. Perinnän rooli on tärkeä, kun haluamme välttää koodin toistuvuutta ohjelman koodissa. Esimerkiksi, jos mallintaisimme koulun oppilaita sekä henkilökuntaa, voisimme luoda olion, joka määrittää kaikki arvot, jotka esiintyvät kaikilla olioilla, kuten nimi sekä ikä. 
 
-### Perintä
+#### Perintä
 
 ```javascript
 
