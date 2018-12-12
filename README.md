@@ -6,7 +6,7 @@ Kirjoittaneet: Eemil Haapsaari, Thierry Botty ja Jesper Kuutti
 ## Sisällysluettelo:
 
 
-[Tietotyypeistä](1-tietotyypit)
+[Tietotyypeistä](#1-tietotyypit)
 
 [Ohjelmointityylistä](#2-ohjelmointityyleistä)
 
